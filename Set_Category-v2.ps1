@@ -3,9 +3,9 @@
 # Update with information specific to your environment #
 ########################################################
 
-$prismcentIP = "10.42.156.40"
+$prismcentIP = "192.168.1.1"
 $RESTAPIUser = "admin"
-$RESTAPIPassword = "nx2Tech156!"
+$RESTAPIPassword = "password"
 #$VMuuid = "6fd8fce2-0e9a-429c-9270-0bb6758dda66"
 
 
