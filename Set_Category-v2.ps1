@@ -29,10 +29,13 @@ $body = '{"kind": "vm",
 
 $Vmlist = Invoke-WebRequest -SkipCertificateCheck $BaseURL'vms/list' -Method 'POST' -Headers $headers -Body $body | ConvertFrom-Json
 
+# filter for string in VM Name
+
 foreach ($vm in $Vmlist.entities) {
     if ($vm.spec.name -like "*ko*") {
             $VMuuid = $vm.metadata.uuid
             Write-Host $VMuuid
+            
             # Get VM spec
 
             $VMspec = Invoke-WebRequest -SkipCertificateCheck $BaseURL'vms/'$VMuuid -Method 'GET' -Headers $headers
