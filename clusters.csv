@@ -1,3 +1,2 @@
 IP,login,password,Annotation,IMG_Name,IMG_Type,IMG_URL
-10.38.67.37,admin,nx2Tech123!,Windows 2019 - no SP,WIN2019,DISK_IMAGE,http://10.42.194.11/images/Microsoft/Windows/Server%202019/Win2019.qcow2
-10.38.70.37,admin,nx2Tech123!,Windows 2019 - no SP,WIN2019,DISK_IMAGE,http://10.42.194.11/images/Microsoft/Windows/Server%202019/Win2019.qcow2
+10.42.46.37,admin,nx2Tech123!,Windows 2019 - no SP,WIN2019,DISK_IMAGE,http://10.42.194.11/images/Microsoft/Windows/Server%202019/Win2019.qcow2
