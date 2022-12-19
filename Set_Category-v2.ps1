@@ -3,10 +3,12 @@
 # Update with information specific to your environment #
 ########################################################
 
-$prismcentIP = "192.168.1.1"
+$prismcentIP = "10.42.156.40"
 $RESTAPIUser = "admin"
-$RESTAPIPassword = "password"
-#$VMuuid = "6fd8fce2-0e9a-429c-9270-0bb6758dda66"
+$RESTAPIPassword = "nx2Tech156!"
+$VMfilter = "ko"
+$CatName = "KOTEST"
+$CatValue = "KOTEST2"
 
 
 # Creates variable with base API BaseURL
@@ -32,17 +34,17 @@ $Vmlist = Invoke-WebRequest -SkipCertificateCheck $BaseURL'vms/list' -Method 'PO
 # filter for string in VM Name
 
 foreach ($vm in $Vmlist.entities) {
-    if ($vm.spec.name -like "*ko*") {
+    if ($vm.spec.name -like "*" + $VMfilter + "*") {
             $VMuuid = $vm.metadata.uuid
             Write-Host $VMuuid
-            
+
             # Get VM spec
 
             $VMspec = Invoke-WebRequest -SkipCertificateCheck $BaseURL'vms/'$VMuuid -Method 'GET' -Headers $headers
 
             # Update Category - NOTE: assumes current categories is blank - and is updated with Category Name and Value
 
-            $VMspec = $VMspec.Content.Replace('"categories": {}', '"categories": {"KOTEST": "KOTEST1"}') | ConvertFrom-Json
+            $VMspec = $VMspec.Content.Replace('"categories": {}', '"categories": {"' + $CatName + '": "' + $CatValue + '"}') | ConvertFrom-Json
 
             # Create Spec and Metadata sections from $VMspec array
 
